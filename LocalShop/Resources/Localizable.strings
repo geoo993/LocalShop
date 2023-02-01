@@ -1,5 +1,5 @@
 "products_screen__title" = "Products";
 "cart_screen__title" = "Cart";
-"error_alert__title" = "Opps, An Error Occured";
+"error_alert__title" = "Oops, An error occured";
 "error_alert__message" = "Please try again later";
 "error_alert__cta" = "Ok";

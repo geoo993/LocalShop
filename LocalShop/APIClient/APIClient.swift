@@ -13,7 +13,6 @@ enum HTTPMethod: String {
 
 protocol HTTPRequest {
     associatedtype ResponseObject = Any
-    associatedtype ResponseError = Error
     var baseUrl: URL? { get }
     var path: String { get }
     var httpMethod: HTTPMethod { get }
