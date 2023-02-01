@@ -32,6 +32,6 @@ This project is build in SwiftUI. It shows a list of products. When you click li
 
 ### Screenshots
 
-|<img src="Images/image-1.png" width="300"> | <img src="Images/image-2.png" width="300">|
+<img src="Images/image-1.png" width="300"> | <img src="Images/image-2.png" width="300">
 
-|<img src="Images/image-3.png" width="300"> | <img src="Images/image-4.png" width="300">|
+<img src="Images/image-3.png" width="300"> | <img src="Images/image-4.png" width="300">
