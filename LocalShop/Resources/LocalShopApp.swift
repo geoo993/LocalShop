@@ -7,7 +7,7 @@ struct LocalShopApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ProductsView(viewModel: .init())
                 .onChange(of: scenePhase) { _ in
                     persistenceController.save()
                 }

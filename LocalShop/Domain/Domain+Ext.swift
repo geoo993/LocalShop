@@ -6,7 +6,9 @@ extension Product {
             id: model.id,
             title: model.title,
             price: model.price,
-            thumbnail: URL(string: model.thumbnail)
+            thumbnail: URL(string: model.thumbnail),
+            stock: model.stock,
+            quantity: 1
         )
     }
     
@@ -18,7 +20,9 @@ extension Product {
             id: Int(model.id),
             title: title,
             price: model.price,
-            thumbnail: URL(string: thumbnail)
+            thumbnail: URL(string: thumbnail),
+            stock: Int(model.stock),
+            quantity: Int(model.quantity)
         )
     }
 }

@@ -39,20 +39,34 @@ final class ProductsRepositoryTests: XCTestCase {
         XCTAssertEqual(result.first?.title, "iPhone 9")
     }
     
-    func testSaveAndDeletedProductss() throws {
+    func testSaveAndDeletedProducts() throws {
         let iPhone: Product = .fixture()
         let desk: Product = .fixture(id: 291, title: "Standing Desk")
-        try sut.save(product: iPhone)
-        try sut.save(product: desk)
+        let isIphoneSaved = try sut.save(product: iPhone)
+        XCTAssertTrue(isIphoneSaved)
+        let isDeskSaved = try sut.save(product: desk)
+        XCTAssertTrue(isDeskSaved)
         let cart = try sut.cartProducts()
         XCTAssertEqual(cart, [iPhone, desk])
         
-        try sut.delete(product: iPhone)
+        let isIphoneSaved2 = try sut.save(product: iPhone)
+        XCTAssertFalse(isIphoneSaved2)
         let cart2 = try sut.cartProducts()
         XCTAssertEqual(cart2, [desk])
         
-        try sut.delete(product: desk)
+        let isDeskSaved2 = try sut.save(product: desk)
+        XCTAssertFalse(isDeskSaved2)
         let cart3 = try sut.cartProducts()
         XCTAssertTrue(cart3.isEmpty)
+    }
+    
+    func testUpdateQuantity() throws {
+        let iPhone: Product = .fixture()
+        let isIphoneSaved = try sut.save(product: iPhone)
+        XCTAssertTrue(isIphoneSaved)
+        
+        try sut.updateQuantity(of: iPhone, units: 3)
+        let cart = try sut.cartProducts()
+        XCTAssertEqual(cart.first?.quantity, 3)
     }
 }

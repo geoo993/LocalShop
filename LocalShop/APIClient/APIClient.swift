@@ -28,12 +28,12 @@ extension HTTPRequest {
     var timeoutInterval: TimeInterval { 30 }
 }
 
-public protocol HTTPSession {
+protocol HTTPSession {
     func data(from urlRequest: URLRequest) async throws -> (Data, URLResponse)
 }
 
 extension URLSession: HTTPSession {
-    public func data(from urlRequest: URLRequest) async throws -> (Data, URLResponse) {
+    func data(from urlRequest: URLRequest) async throws -> (Data, URLResponse) {
         try await data(for: urlRequest)
     }
 }

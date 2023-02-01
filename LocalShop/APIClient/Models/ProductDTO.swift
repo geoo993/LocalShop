@@ -1,8 +1,8 @@
 import Foundation
 
 extension APIClient {
-    public struct Products: Decodable {
-        public let data: [Product]
+    struct Products: Decodable {
+        let data: [Product]
     }
 }
 
@@ -13,10 +13,11 @@ extension APIClient.Products {
 }
 
 extension APIClient {
-    public struct Product: Decodable {
-        public let id: Int
-        public let title: String
-        public let price: Double
-        public let thumbnail: String
+    struct Product: Decodable {
+        let id: Int
+        let title: String
+        let price: Double
+        let thumbnail: String
+        let stock: Int
     }
 }

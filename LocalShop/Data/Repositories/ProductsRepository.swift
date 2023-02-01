@@ -7,8 +7,8 @@ protocol ProductsRepository {
     ) async throws -> [Product]
     
     func cartProducts() throws -> [Product]
-    func save(product: Product) throws
-    func delete(product: Product) throws
+    func save(product: Product) throws -> Bool
+    func updateQuantity(of product: Product, units: Int) throws
 }
 
 struct DefaultProductsRepository: ProductsRepository {
@@ -36,13 +36,22 @@ struct DefaultProductsRepository: ProductsRepository {
         try context.items()
     }
     
-    func save(product: Product) throws {
-        guard try !context.isSaved(product) else { return }
-        try context.save(product)
+    func save(product: Product) throws -> Bool {
+        if try !context.isSaved(product) {
+            try context.save(product)
+            return true
+        } else {
+            try context.delete(product)
+            return false
+        }
     }
-
-    func delete(product: Product) throws {
+    
+    func updateQuantity(of product: Product, units: Int) throws {
         guard try context.isSaved(product) else { return }
-        try context.delete(product)
+        if units == 0 {
+            try context.delete(product)
+        } else {
+            try context.quantity(product, units)
+        }
     }
 }
