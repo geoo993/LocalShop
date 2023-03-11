@@ -8,19 +8,18 @@ struct ProductsView: View {
     
     var body: some View {
         NavigationStack(path: $path) {
-            List(viewModel.products) { product in
-                ProductCell(
-                    product: product,
-                    onButtonAction: {
+            List {
+                ForEach(viewModel.products) { product in
+                    ListView(product: product) {
                         viewModel.didTap(product: product)
                     }
-                )
-                .listRowInsets(
-                    EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10)
-                )
-                .listRowSeparator(.hidden)
-                .background(Assets.Color.background)
-                .cornerRadius(12)
+                    if product == viewModel.products.last {
+                        ProgressView()
+                            .onAppear {
+                                viewModel.loadNextProducts()
+                            }
+                    }
+                }
             }
             .buttonStyle(PlainButtonStyle())
             .listStyle(PlainListStyle())
@@ -51,6 +50,26 @@ struct ProductsView: View {
             ),
             dismissAction: viewModel.dismissAlert
         )
+    }
+}
+
+struct ListView: View {
+    @State var product: Product
+    var didTapHandler: () -> (Bool)
+    
+    var body: some View {
+        ProductCell(
+            product: product,
+            onButtonAction: {
+                didTapHandler()
+            }
+        )
+        .listRowInsets(
+            EdgeInsets(top: 5, leading: 10, bottom: 5, trailing: 10)
+        )
+        .listRowSeparator(.hidden)
+        .background(Assets.Color.background)
+        .cornerRadius(12)
     }
 }
 

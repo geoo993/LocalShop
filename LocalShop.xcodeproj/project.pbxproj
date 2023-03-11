@@ -42,6 +42,7 @@
 		C7EB779F2989C3EB00B113FB /* CartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EB779E2989C3EB00B113FB /* CartView.swift */; };
 		C7EB77A22989C43200B113FB /* Unwrap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EB77A02989C43200B113FB /* Unwrap.swift */; };
 		C7EB77A62989C48000B113FB /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C7EB77A52989C48000B113FB /* Localizable.strings */; };
+		C7F87679299B801C00644952 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = C7F87678299B801C00644952 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,7 @@
 		C7EB779E2989C3EB00B113FB /* CartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartView.swift; sourceTree = "<group>"; };
 		C7EB77A02989C43200B113FB /* Unwrap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Unwrap.swift; sourceTree = "<group>"; };
 		C7EB77A52989C48000B113FB /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		C7F87678299B801C00644952 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 		C7092C3C29899C2F003B36CB = {
 			isa = PBXGroup;
 			children = (
+				C7F87678299B801C00644952 /* README.md */,
 				C7092C4729899C30003B36CB /* LocalShop */,
 				C7D278862989A638003BE583 /* LocalShopTests */,
 				C7092C4629899C30003B36CB /* Products */,
@@ -429,6 +432,7 @@
 			files = (
 				C776F776298A5312008241A4 /* FetchProductsRequest.json in Resources */,
 				C7092C5029899C33003B36CB /* Preview Assets.xcassets in Resources */,
+				C7F87679299B801C00644952 /* README.md in Resources */,
 				C7EB77A62989C48000B113FB /* Localizable.strings in Resources */,
 				C7092C4D29899C33003B36CB /* Assets.xcassets in Resources */,
 			);

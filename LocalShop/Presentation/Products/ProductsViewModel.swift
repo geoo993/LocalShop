@@ -20,13 +20,25 @@ final class ProductsViewModel: ObservableObject {
     func loadProducts() {
         Task {
             do {
-                products = try await repository.fetchProducts(limit: limit, skip: skip)
-                skip += limit
+                let results = try await withThrowingTaskGroup(
+                    of: Product.self,
+                    returning: [Product].self,
+                    body: { taskGroup in
+                        let results = try await self.repository.fetchProducts(limit: self.limit, skip: self.skip)
+                        self.skip += limit
+                        return results
+                })
+                products.append(contentsOf: results)
                 showErrorMessage = false
             } catch {
                 showErrorMessage = true
             }
         }
+    }
+    
+    @MainActor
+    func loadNextProducts() {
+        loadProducts()
     }
     
     func didTap(product: Product) -> Bool {
